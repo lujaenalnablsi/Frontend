@@ -1,0 +1,67 @@
+/* Dark-mode overrides for the static Tailwind color utilities.
+   Ported from Frontend-Eventifiy/assets/js/theme.js (installThemeOverrides). */
+html.dark body { background-color: #0b0c0e !important; color: #f5f4f1 !important; }
+html.dark .bg-background, html.dark .bg-surface { background-color: #0b0c0e !important; }
+html.dark .bg-surface-container-lowest { background-color: #16181c !important; }
+html.dark .bg-surface-container-low { background-color: #1c1f24 !important; }
+html.dark .bg-surface-container, html.dark .bg-surface-container-high { background-color: #23262c !important; }
+html.dark .text-on-background, html.dark .text-on-surface { color: #f5f4f1 !important; }
+html.dark .text-on-surface-variant { color: #a8a49c !important; }
+html:not(.dark) body { background-color: #fafaf8 !important; color: #0b0c0e !important; }
+html:not(.dark) .bg-background, html:not(.dark) .bg-surface { background-color: #fafaf8 !important; }
+html:not(.dark) .bg-surface-container-lowest { background-color: #ffffff !important; }
+html:not(.dark) .bg-surface-container-low { background-color: #f4f3ef !important; }
+html:not(.dark) .bg-surface-container, html:not(.dark) .bg-surface-container-high { background-color: #edebe5 !important; }
+html:not(.dark) .text-on-background, html:not(.dark) .text-on-surface { color: #0b0c0e !important; }
+html:not(.dark) .text-on-surface-variant { color: #4a5058 !important; }
+/* --secondary / --tertiary are near-black and dark-gray: unreadable on dark surfaces, so lift them.
+   The "-fixed" chips keep their light background in both themes, so text on them stays dark. */
+html.dark .text-secondary { color: #e7e5e0 !important; }
+html.dark .text-tertiary { color: #a8a49c !important; }
+html.dark [class*="bg-primary-fixed"] .text-secondary,
+html.dark [class*="bg-secondary-fixed"] .text-secondary,
+html.dark [class*="bg-tertiary-fixed"] .text-secondary { color: #0e1116 !important; }
+html.dark [class*="bg-primary-fixed"] .text-tertiary,
+html.dark [class*="bg-secondary-fixed"] .text-tertiary,
+html.dark [class*="bg-tertiary-fixed"] .text-tertiary { color: #4a5058 !important; }
+/* Same for the error red, and the "highest" surface which otherwise stays light under light text. */
+html.dark .text-error { color: #ff8b82 !important; }
+html.dark [class*="bg-error-container"] .text-error,
+html.dark .bg-error-container.text-error { color: #b3261e !important; }
+html.dark .bg-surface-container-highest { background-color: #2b2f36 !important; }
+html.dark .text-success { color: #5fd09a !important; }
+html.dark [class*="bg-success-container"] .text-success,
+html.dark .bg-success-container.text-success { color: #1e7a4f !important; }
+html.dark [class*="border-outline-variant"] { border-color: rgba(255, 255, 255, 0.14) !important; }
+html.dark input[type="checkbox"], html.dark input[type="radio"] {
+    background-color: #1c1f24 !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    accent-color: #ff4d2e;
+}
+
+.bg-primary { background-color: var(--color-primary, #FF4D2E) !important; }
+.text-on-primary { color: var(--color-on-primary, #FFFFFF) !important; }
+.badge { opacity: 1 !important; }
+
+/* Ensure native dialogs are perfectly centered in viewport */
+dialog.confirm-dialog {
+  position: fixed !important;
+  inset: 0 !important;
+  margin: auto !important;
+  z-index: 50 !important;
+}
+
+dialog.confirm-dialog::backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(14, 17, 22, 0.45) !important;
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+}
+
+/* Ensure hidden elements are always hidden */
+[hidden] {
+  display: none !important;
+}
